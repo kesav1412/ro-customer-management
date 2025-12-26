@@ -1,0 +1,14 @@
+node_modules
+dist
+.git
+.gitignore
+.env*
+!.env.example
+*.md
+!README.md
+.vscode
+.idea
+*.log
+backups
+.cache
+*.tsbuildinfo

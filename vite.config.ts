@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig(({ mode }) => {
   return {
+    base: '/ro-customer-management/',
     plugins: [react()],
     resolve: {
       alias: {

@@ -7,7 +7,6 @@ import {
   DialogActions,
   TextField,
   Button,
-  Grid,
   Box,
 } from '@mui/material';
 
@@ -77,8 +76,8 @@ export function CustomerForm({ open, onClose, onSubmit, initialData }: CustomerF
       <form onSubmit={handleSubmit}>
         <DialogContent>
           <Box sx={{ pt: 1 }}>
-            <Grid container spacing={2.5}>
-              <Grid item xs={12} sm={6}>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2.5 }}>
+              <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 10px)' } }}>
                 <TextField
                   fullWidth
                   label="Customer Name"
@@ -86,8 +85,8 @@ export function CustomerForm({ open, onClose, onSubmit, initialData }: CustomerF
                   onChange={(e) => handleChange('name', e.target.value)}
                   required
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              </Box>
+              <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 10px)' } }}>
                 <TextField
                   fullWidth
                   label="Primary Phone"
@@ -96,8 +95,8 @@ export function CustomerForm({ open, onClose, onSubmit, initialData }: CustomerF
                   onChange={(e) => handleChange('phone1', e.target.value)}
                   required
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              </Box>
+              <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 10px)' } }}>
                 <TextField
                   fullWidth
                   label="Secondary Phone"
@@ -105,8 +104,8 @@ export function CustomerForm({ open, onClose, onSubmit, initialData }: CustomerF
                   value={formData.phone2}
                   onChange={(e) => handleChange('phone2', e.target.value)}
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              </Box>
+              <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 10px)' } }}>
                 <TextField
                   fullWidth
                   label="Street Address"
@@ -114,8 +113,8 @@ export function CustomerForm({ open, onClose, onSubmit, initialData }: CustomerF
                   onChange={(e) => handleChange('street', e.target.value)}
                   required
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              </Box>
+              <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 10px)' } }}>
                 <TextField
                   fullWidth
                   label="City"
@@ -123,8 +122,8 @@ export function CustomerForm({ open, onClose, onSubmit, initialData }: CustomerF
                   onChange={(e) => handleChange('city', e.target.value)}
                   required
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              </Box>
+              <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 10px)' } }}>
                 <TextField
                   fullWidth
                   label="Pincode"
@@ -132,8 +131,8 @@ export function CustomerForm({ open, onClose, onSubmit, initialData }: CustomerF
                   onChange={(e) => handleChange('pincode', e.target.value)}
                   required
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              </Box>
+              <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 10px)' } }}>
                 <TextField
                   fullWidth
                   label="Purchase Date"
@@ -143,8 +142,8 @@ export function CustomerForm({ open, onClose, onSubmit, initialData }: CustomerF
                   required
                   InputLabelProps={{ shrink: true }}
                 />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              </Box>
+              <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 10px)' } }}>
                 <TextField
                   fullWidth
                   label="Installation Date"
@@ -154,8 +153,8 @@ export function CustomerForm({ open, onClose, onSubmit, initialData }: CustomerF
                   required
                   InputLabelProps={{ shrink: true }}
                 />
-              </Grid>
-              <Grid item xs={12}>
+              </Box>
+              <Box sx={{ width: '100%' }}>
                 <TextField
                   fullWidth
                   label="RO Model"
@@ -163,8 +162,8 @@ export function CustomerForm({ open, onClose, onSubmit, initialData }: CustomerF
                   onChange={(e) => handleChange('ro_model', e.target.value)}
                   required
                 />
-              </Grid>
-            </Grid>
+              </Box>
+            </Box>
           </Box>
         </DialogContent>
         <DialogActions sx={{ px: 3, pb: 2.5 }}>

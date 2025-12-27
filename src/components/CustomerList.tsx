@@ -7,7 +7,6 @@ import {
   IconButton,
   Chip,
   Box,
-  Grid,
 } from '@mui/material';
 import {
   Edit as EditIcon,
@@ -45,13 +44,13 @@ export function CustomerList({ customers, onEdit, onDelete }: CustomerListProps)
   }
 
   return (
-    <Grid container spacing={3}>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
       {customers.map((customer) => {
         const nextService = getNextServiceDate(customer.installation_date);
         const overdue = isOverdue(customer.installation_date);
 
         return (
-          <Grid item xs={12} sm={6} lg={4} key={customer.id}>
+          <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 12px)', lg: 'calc(33.33% - 16px)' } }} key={customer.id}>
             <Card sx={{ height: '100%', transition: 'all 0.3s' }}>
               <CardHeader
                 title={
@@ -134,9 +133,9 @@ export function CustomerList({ customers, onEdit, onDelete }: CustomerListProps)
                 </Box>
               </CardContent>
             </Card>
-          </Grid>
+          </Box>
         );
       })}
-    </Grid>
+    </Box>
   );
 }

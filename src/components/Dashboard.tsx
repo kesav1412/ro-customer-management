@@ -4,10 +4,6 @@ import {
   CardContent,
   Typography,
   Box,
-  Grid,
-  Paper,
-  Button,
-  Chip,
 } from '@mui/material';
 import {
   People as UsersIcon,
@@ -90,17 +86,17 @@ export function Dashboard({ customers, todayServices = [], onViewTodayServices }
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} lg={3}>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
+        <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 12px)', lg: 'calc(25% - 18px)' } }}>
           <StatCard
             title="Total Customers"
             value={customers.length}
             icon={<UsersIcon fontSize="small" />}
             color="primary"
           />
-        </Grid>
+        </Box>
 
-        <Grid item xs={12} sm={6} lg={3}>
+        <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 12px)', lg: 'calc(25% - 18px)' } }}>
           <Card 
             sx={{ 
               borderLeft: 4, 
@@ -135,9 +131,9 @@ export function Dashboard({ customers, todayServices = [], onViewTodayServices }
               </Typography>
             </CardContent>
           </Card>
-        </Grid>
+        </Box>
 
-        <Grid item xs={12} sm={6} lg={3}>
+        <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 12px)', lg: 'calc(25% - 18px)' } }}>
           <StatCard
             title="Upcoming Services"
             value={upcomingCount}
@@ -145,9 +141,9 @@ export function Dashboard({ customers, todayServices = [], onViewTodayServices }
             color="success"
             subtitle="Next 30 days"
           />
-        </Grid>
+        </Box>
 
-        <Grid item xs={12} sm={6} lg={3}>
+        <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 12px)', lg: 'calc(25% - 18px)' } }}>
           <StatCard
             title="Overdue Services"
             value={overdueCount}
@@ -155,16 +151,16 @@ export function Dashboard({ customers, todayServices = [], onViewTodayServices }
             color="error"
             subtitle="Requires attention"
           />
-        </Grid>
-        <Grid item xs={12} sm={6} lg={3}>
+        </Box>
+        <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 12px)', lg: 'calc(25% - 18px)' } }}>
           <StatCard
             title="Cities Covered"
             value={Object.keys(cityDistribution).length}
             icon={<MapPinIcon fontSize="small" />}
             color="info"
           />
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
 
       <Card>
         <CardContent>

@@ -6,7 +6,6 @@ import {
   InputLabel,
   InputAdornment,
   Box,
-  Grid,
 } from '@mui/material';
 import {
   Search as SearchIcon,
@@ -64,9 +63,9 @@ export function SearchFilter({
       />
 
       {/* Filter Dropdowns */}
-      <Grid container spacing={2}>
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
         {/* City Dropdown */}
-        <Grid item xs={12} md={6}>
+        <Box sx={{ width: { xs: '100%', md: 'calc(50% - 8px)' } }}>
           <FormControl fullWidth>
             <InputLabel>Filter by City</InputLabel>
             <Select
@@ -87,10 +86,10 @@ export function SearchFilter({
               ))}
             </Select>
           </FormControl>
-        </Grid>
+        </Box>
 
         {/* Street Dropdown */}
-        <Grid item xs={12} md={6}>
+        <Box sx={{ width: { xs: '100%', md: 'calc(50% - 8px)' } }}>
           <FormControl fullWidth>
             <InputLabel>Filter by Street</InputLabel>
             <Select
@@ -111,8 +110,8 @@ export function SearchFilter({
               ))}
             </Select>
           </FormControl>
-        </Grid>
-      </Grid>
+        </Box>
+      </Box>
     </Box>
   );
 }

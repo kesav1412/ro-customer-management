@@ -1,12 +1,12 @@
-import { Service, Customer } from '../lib/supabase';
+import { Service } from '../lib/supabase';
 import {
   TextField,
-  Grid,
   FormControl,
   InputLabel,
   Select,
   MenuItem,
   InputAdornment,
+  Box,
 } from '@mui/material';
 import {
   Search as SearchIcon,
@@ -73,9 +73,9 @@ export function ServiceFilter({
   const statuses = ['scheduled', 'in_progress', 'completed', 'cancelled'];
 
   return (
-    <Grid container spacing={2}>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
       {/* Search */}
-      <Grid item xs={12} md={6}>
+      <Box sx={{ width: { xs: '100%', md: 'calc(50% - 8px)' } }}>
         <TextField
           fullWidth
           placeholder="Search by customer name, phone, or technician..."
@@ -89,10 +89,10 @@ export function ServiceFilter({
             ),
           }}
         />
-      </Grid>
+      </Box>
 
       {/* Date Filter */}
-      <Grid item xs={12} sm={6} md={3}>
+      <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 8px)', md: 'calc(25% - 12px)' } }}>
         <FormControl fullWidth>
           <InputLabel>Service Date</InputLabel>
           <Select
@@ -117,10 +117,10 @@ export function ServiceFilter({
             ))}
           </Select>
         </FormControl>
-      </Grid>
+      </Box>
 
       {/* Service Type Filter */}
-      <Grid item xs={12} sm={6} md={3}>
+      <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 8px)', md: 'calc(25% - 12px)' } }}>
         <FormControl fullWidth>
           <InputLabel>Service Type</InputLabel>
           <Select
@@ -141,10 +141,10 @@ export function ServiceFilter({
             ))}
           </Select>
         </FormControl>
-      </Grid>
+      </Box>
 
       {/* City Filter */}
-      <Grid item xs={12} sm={6} md={3}>
+      <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 8px)', md: 'calc(25% - 12px)' } }}>
         <FormControl fullWidth>
           <InputLabel>City</InputLabel>
           <Select
@@ -165,10 +165,10 @@ export function ServiceFilter({
             ))}
           </Select>
         </FormControl>
-      </Grid>
+      </Box>
 
       {/* Street Filter */}
-      <Grid item xs={12} sm={6} md={3}>
+      <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 8px)', md: 'calc(25% - 12px)' } }}>
         <FormControl fullWidth disabled={!selectedCity || selectedCity === 'all'}>
           <InputLabel>Street</InputLabel>
           <Select
@@ -189,10 +189,10 @@ export function ServiceFilter({
             ))}
           </Select>
         </FormControl>
-      </Grid>
+      </Box>
 
       {/* Status Filter */}
-      <Grid item xs={12} sm={6} md={3}>
+      <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 8px)', md: 'calc(25% - 12px)' } }}>
         <FormControl fullWidth>
           <InputLabel>Status</InputLabel>
           <Select
@@ -208,7 +208,7 @@ export function ServiceFilter({
             ))}
           </Select>
         </FormControl>
-      </Grid>
-    </Grid>
+      </Box>
+    </Box>
   );
 }

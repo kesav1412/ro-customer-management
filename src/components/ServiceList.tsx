@@ -5,7 +5,6 @@ import {
   Typography,
   IconButton,
   Box,
-  Grid,
   Chip,
 } from '@mui/material';
 import {
@@ -63,9 +62,9 @@ export function ServiceList({ services, onEdit, onDelete }: ServiceListProps) {
   }
 
   return (
-    <Grid container spacing={3}>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
       {services.map((service) => (
-        <Grid item xs={12} md={6} lg={4} key={service.id}>
+        <Box sx={{ width: { xs: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.33% - 16px)' } }} key={service.id}>
           <Card
             sx={{
               height: '100%',
@@ -164,8 +163,8 @@ export function ServiceList({ services, onEdit, onDelete }: ServiceListProps) {
               </Box>
             </CardContent>
           </Card>
-        </Grid>
+        </Box>
       ))}
-    </Grid>
+    </Box>
   );
 }

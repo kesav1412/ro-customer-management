@@ -7,12 +7,12 @@ import {
   DialogActions,
   TextField,
   Button,
-  Grid,
   FormControl,
   InputLabel,
   Select,
   MenuItem,
   Autocomplete,
+  Box,
 } from '@mui/material';
 
 interface ServiceFormProps {
@@ -111,9 +111,9 @@ export function ServiceForm({ open, onClose, onSubmit, initialData, customers }:
           {initialData ? 'Edit Service' : 'Add New Service'}
         </DialogTitle>
         <DialogContent>
-          <Grid container spacing={2.5} sx={{ mt: 0.5 }}>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2.5, mt: 0.5 }}>
             {/* Customer Selection */}
-            <Grid item xs={12}>
+            <Box sx={{ width: '100%' }}>
               <Autocomplete
                 value={selectedCustomer}
                 onChange={(_, newValue) => handleCustomerSelect(newValue)}
@@ -129,10 +129,10 @@ export function ServiceForm({ open, onClose, onSubmit, initialData, customers }:
                 )}
                 isOptionEqualToValue={(option, value) => option.id === value.id}
               />
-            </Grid>
+            </Box>
 
             {/* Service Date */}
-            <Grid item xs={12} sm={6}>
+            <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 10px)' } }}>
               <TextField
                 fullWidth
                 label="Service Date"
@@ -142,10 +142,10 @@ export function ServiceForm({ open, onClose, onSubmit, initialData, customers }:
                 required
                 InputLabelProps={{ shrink: true }}
               />
-            </Grid>
+            </Box>
 
             {/* Service Type */}
-            <Grid item xs={12} sm={6}>
+            <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 10px)' } }}>
               <FormControl fullWidth required>
                 <InputLabel>Service Type</InputLabel>
                 <Select
@@ -159,10 +159,10 @@ export function ServiceForm({ open, onClose, onSubmit, initialData, customers }:
                   <MenuItem value="filter_change">Filter Change</MenuItem>
                 </Select>
               </FormControl>
-            </Grid>
+            </Box>
 
             {/* Status */}
-            <Grid item xs={12} sm={6}>
+            <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 10px)' } }}>
               <FormControl fullWidth required>
                 <InputLabel>Status</InputLabel>
                 <Select
@@ -176,10 +176,10 @@ export function ServiceForm({ open, onClose, onSubmit, initialData, customers }:
                   <MenuItem value="cancelled">Cancelled</MenuItem>
                 </Select>
               </FormControl>
-            </Grid>
+            </Box>
 
             {/* Technician */}
-            <Grid item xs={12} sm={6}>
+            <Box sx={{ width: '100%' }}>
               <TextField
                 fullWidth
                 label="Technician Name"
@@ -187,10 +187,10 @@ export function ServiceForm({ open, onClose, onSubmit, initialData, customers }:
                 onChange={(e) => setFormData({ ...formData, technician: e.target.value })}
                 placeholder="Enter technician name"
               />
-            </Grid>
+            </Box>
 
             {/* Notes */}
-            <Grid item xs={12}>
+            <Box sx={{ width: '100%' }}>
               <TextField
                 fullWidth
                 label="Notes"
@@ -200,22 +200,20 @@ export function ServiceForm({ open, onClose, onSubmit, initialData, customers }:
                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                 placeholder="Add any additional notes or details..."
               />
-            </Grid>
+            </Box>
 
             {/* Customer Info Display (Read-only) */}
             {selectedCustomer && (
-              <>
-                <Grid item xs={12}>
-                  <TextField
-                    fullWidth
-                    label="Customer Address"
-                    value={`${formData.customer_street}, ${formData.customer_city}`}
-                    disabled
-                  />
-                </Grid>
-              </>
+              <Box sx={{ width: '100%' }}>
+                <TextField
+                  fullWidth
+                  label="Customer Address"
+                  value={`${formData.customer_street}, ${formData.customer_city}`}
+                  disabled
+                />
+              </Box>
             )}
-          </Grid>
+          </Box>
         </DialogContent>
         <DialogActions sx={{ px: 3, pb: 3 }}>
           <Button onClick={onClose}>Cancel</Button>

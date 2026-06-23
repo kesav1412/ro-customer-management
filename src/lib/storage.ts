@@ -21,7 +21,7 @@ export const storageService = {
     }
   },
 
-  addCustomer(customer: Customer): Customer {
+  addCustomer(customer: Omit<Customer, 'id' | 'created_at' | 'updated_at'>): Customer {
     const customers = this.getCustomers();
     const newCustomer = {
       ...customer,

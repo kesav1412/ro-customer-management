@@ -6,18 +6,19 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export interface Customer {
-  id?: string;
+  id: string;
+  customer_id: string;
   name: string;
   phone1: string;
-  phone2?: string;
+  phone2: string;
   street: string;
   city: string;
   pincode: string;
   purchase_date: string;
   installation_date: string;
   ro_model: string;
-  created_at?: string;
-  updated_at?: string;
+  created_at: string;
+  updated_at: string;
 }
 
 export interface Service {
